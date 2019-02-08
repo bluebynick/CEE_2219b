@@ -1,0 +1,14 @@
+% MatLab Assignment 1, Part 1
+% Coded by: Nicholas Paul (250949057)
+% Dr. Martha Dagnew
+% January 31st 2019
+
+D = 50:50:500;
+n = 0.012;
+S = 0.015;
+
+A = (pi*(D.^2))/4;
+
+R = A
+
+V = (1/n) * (
