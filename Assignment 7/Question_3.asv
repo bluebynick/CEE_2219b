@@ -1,0 +1,15 @@
+%Assignment 5, Question 1a
+%Coded by: Nicholas Paul
+%For: Dr. Martha Dagnew. CEE 2219b
+%March 11th 2019
+
+
+height = 0:0.1:4; %decalre array of heights
+
+func =@(height) pi*(height^2)*(3*4-height)/3 -60;
+dfunc =@(height) -pi*(height-8)*height;
+
+[root,ea,iter]=Nicholas_Paul_Newtraph(func, dfunc, 3.5, 0.05, 100);
+
+%[root,fx,ea,iter]=npaul5_False_Position(func,0,4,0.001,1000)
+

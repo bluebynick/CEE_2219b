@@ -1,0 +1,10 @@
+function [root,ea, iter] = Nicholas_Paul_Newtraph(func, dfunc, xrold, es, maxit)
+%NICHOLAS_PAUL_NEWTRAPH computes the root of a function using the
+%Newton-Raphson method
+%
+
+iter = 0
+while(1)
+    xrn = xrold - (func(xrold)/dfunc(xrold));
+end
+
