@@ -1,6 +1,7 @@
 function [root]=npaul5_Bisect_Function_2(func, xl, xu, es, maxit)
-test=func(xl)*func(xu);
 
+%test to ensure sign change (necessary for computation to continue)
+test=func(xl)*func(xu);
 if test>0, error ('no sign change'); 
 end
 
@@ -13,16 +14,19 @@ ea = 100;
 i = 1; % declare counter
 
 while(i<=maxit)
-    xrold=xr;
     
+    %solve for xr
+    xrold=xr;
     xr=(xl+xu)/2;
     
+    %calculate approximate error
     if xr~=0
         ea=abs((xr-xrold)/xr*100);
         test=func(xl)*func(xr);
         
     end
     
+    %change value of xu or xl based on sign of func(xl)*func(xr)
     if test<0
         xu=xr;
         
@@ -33,16 +37,22 @@ while(i<=maxit)
         ea=0;
     end
     
+    %populate array in order to plot it
     iter(i) = i;
     rootPerStep(i) = xr;
     
+    %increase counter
     i = i+1;
     
-    if ea<=es, break, end
+    %test to see if error is acceptable and then exit the loop
+    if ea<=es
+        break
+    end
     
 end
 
-subplot(1,2,2);
+%graph the function
+subplot(3,2,2); %subplot with 3 rows, 2 columns. Place the below graph in the 2nd position
 plot(iter,rootPerStep, '-');
 grid on;
 xlabel('number of iteration');
